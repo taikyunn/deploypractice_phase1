@@ -2,22 +2,28 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	// "log"
-	// "os"
 )
 
+type User struct {
+	Name string
+	Age  int
+}
+
 func main() {
-	r := gin.Default()
-	// port := os.Getenv("PORT")
+	router := gin.Default()
 
-	// if port == "" {
-	// 	log.Fatal("$PORT must be set")
-	// }
+	router.LoadHTMLGlob("templates/*.html")
 
-	r.GET("/", func(c *gin.Context) {
-		r.LoadHTMLFiles("./templates/index.html")
-		c.HTML(200, "index.html", gin.H{})
+	router.GET("/", handler)
+
+	router.Run()
+}
+
+func handler(ctx *gin.Context) {
+
+	user := User{"User", 20}
+
+	ctx.HTML(200, "index.html", gin.H{
+		"user": user,
 	})
-	// r.Run(":" + port)
-	r.Run(":3000")
 }
