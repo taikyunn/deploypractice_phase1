@@ -1,4 +1,4 @@
-module app
+module deploypractice_phase1
 
 go 1.15
 
