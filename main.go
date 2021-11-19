@@ -16,7 +16,7 @@ func main() {
 
 	router.GET("/", handler)
 
-	router.Run()
+	router.Run(":3000")
 }
 
 func handler(ctx *gin.Context) {
