@@ -2,6 +2,6 @@ build:
   languages:
     - go
 
+# runは絶対に必要ないとエラーになる
 run:
-  # web: deploy_practice_phase1
-  web: "go run main.go"
+  web: deploypractice_phase1
