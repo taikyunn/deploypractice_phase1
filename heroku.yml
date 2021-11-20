@@ -2,5 +2,6 @@ build:
   languages:
     - go
 
-run:
-  web: go run main.go
+# run:
+  # web: deploy_practice_phase1
+  # web: go run main.go
