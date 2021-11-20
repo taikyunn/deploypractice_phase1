@@ -1,6 +1,9 @@
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -10,13 +13,19 @@ type User struct {
 }
 
 func main() {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
 	router := gin.Default()
 
 	router.LoadHTMLGlob("templates/*.html")
 
 	router.GET("/", handler)
 
-	router.Run(":3000")
+	// router.Run(":3000")
+	router.Run(":" + port)
 }
 
 func handler(ctx *gin.Context) {
