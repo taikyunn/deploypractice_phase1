@@ -14,6 +14,9 @@ Dockerを使用しない場合は公式では採用されていない。
 ただこのdeploypractice_phase1の書き方ならエラーにならない。
 書き方は参照すること
 
+$ heroku login
+heroku create アプリ名
+
 4.git push heroku main
 
 5.heroku open
